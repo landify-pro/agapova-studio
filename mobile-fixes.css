@@ -1,0 +1,155 @@
+/* AGAPOVA STUDIO — mobile polish / QA fixes */
+
+@media (max-width: 760px) {
+  :root{
+    --serif:"Cormorant Garamond", Georgia, serif;
+    --sans:"Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --script:"Marck Script", cursive;
+  }
+
+  body{font-family:var(--sans)}
+
+  .brand,
+  .section-title,
+  .about-copy .section-title,
+  .services .section-title,
+  .team-copy h2,
+  .works .section-title,
+  .reviews-head h2,
+  .review-copy h2,
+  .cta-copy h2.mobile-only,
+  .stat strong,
+  .service-mobile-body h3{
+    font-family:var(--serif) !important;
+  }
+
+  .brand{
+    font-size:30px;
+    line-height:.9;
+    font-weight:400;
+    letter-spacing:.055em;
+  }
+  .brand small{font-family:var(--sans);letter-spacing:.5em}
+
+  /* Hero: same premium typography as desktop + enough breathing room */
+  .hero{
+    height:710px;
+    min-height:710px;
+    border-radius:0 0 28px 28px;
+  }
+  .hero-content{
+    height:710px;
+    min-height:710px;
+    padding:0;
+  }
+  .hero-copy{
+    height:710px;
+    min-height:710px;
+    padding:0 22px 28px;
+    justify-content:flex-end;
+  }
+  .hero-sub.mobile-only{
+    display:block;
+    font-family:var(--serif) !important;
+    font-size:46px;
+    line-height:.93;
+    font-weight:400;
+    letter-spacing:-.025em;
+    color:#fff;
+    max-width:310px;
+    margin:0 0 18px;
+  }
+  .hero-loyalty{
+    font-family:var(--sans);
+    max-width:285px;
+    margin:0 0 18px;
+    gap:1px;
+    font-size:14px;
+    line-height:1.38;
+    letter-spacing:-.01em;
+  }
+  .hero-loyalty strong{font-weight:600}
+  .hero-main-cta{
+    min-height:52px;
+    padding:9px 9px 9px 20px;
+    margin:0 0 17px;
+    font-size:14px;
+  }
+  .hero-main-cta span{width:36px;height:36px}
+  .watch-link{gap:13px;margin:0 0 2px}
+  .play-circle{width:60px;height:60px}
+  .play-circle::after{font-size:19px}
+  .watch-link b{font-size:13px;line-height:1.35;max-width:155px}
+
+  /* Typography consistency throughout mobile */
+  .about-copy .section-title{font-size:33px;line-height:1}
+  .services .section-title,
+  .team-copy h2,
+  .works .section-title,
+  .reviews-head h2{font-size:35px;line-height:1}
+  .service-mobile-body h3{font-size:24px;line-height:1}
+  .cta-copy h2.mobile-only{font-size:31px;line-height:1;max-width:240px}
+
+  /* Team: never crop people out */
+  .team-group{
+    padding:0;
+    background:#1b100d;
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .team-group img{
+    display:block;
+    width:100%;
+    height:auto !important;
+    aspect-ratio:16/9;
+    object-fit:contain !important;
+    object-position:center !important;
+    border-radius:16px;
+    background:#1b100d;
+  }
+
+  /* Works: portrait cards so hair / faces have vertical space */
+  .work-card{
+    flex:0 0 calc(50% - 4.5px);
+    aspect-ratio:3/4 !important;
+  }
+  .work-card img{
+    width:100%;
+    height:100% !important;
+    object-fit:cover;
+  }
+
+  /* Reviews: show the complete uploaded review instead of cropping its text */
+  .reviews-track{align-items:flex-start}
+  .review-image-card{
+    height:auto;
+    background:#fff;
+  }
+  .review-image-card img{
+    display:block;
+    width:100%;
+    height:auto !important;
+    max-height:none !important;
+    aspect-ratio:auto !important;
+    object-fit:contain !important;
+    object-position:center !important;
+  }
+  .reviews-carousel{align-items:center}
+
+  /* Bottom card: keep logo/socials away from the content */
+  .cta-card,
+  .cta-content{
+    min-height:275px;
+    height:275px;
+  }
+  .cta-content{padding:18px 16px 54px}
+  .footer-brand{bottom:13px}
+  .footer-socials.social-links{bottom:14px}
+}
+
+@media (max-width: 380px){
+  .hero,.hero-content,.hero-copy{height:690px;min-height:690px}
+  .hero-copy{padding-left:18px;padding-right:18px;padding-bottom:24px}
+  .hero-sub.mobile-only{font-size:42px;max-width:285px}
+  .hero-loyalty{font-size:13px}
+}
