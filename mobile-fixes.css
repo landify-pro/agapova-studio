@@ -1,25 +1,48 @@
 /* AGAPOVA STUDIO — founder hero, Yandex map, mobile polish */
 
-/* Founder portrait hero — loaded by enhancements.js from hero/part-*.txt */
+/* Founder portrait hero — clean blend, no hard seam */
 .hero-media{
-  background:linear-gradient(90deg,#2a1712 0%,#3a2118 48%,#1d100d 100%);
+  background:linear-gradient(90deg,#2a1712 0%,#321b15 38%,#25130f 100%);
+  overflow:hidden;
 }
 .hero-media img.founder-hero-loaded{
   position:absolute;
   top:0;
   right:0;
   left:auto;
-  width:58%;
+  width:53%;
   height:100%;
   object-fit:cover;
   object-position:center 42%;
-  filter:saturate(.98) contrast(1.02) brightness(.94);
-  animation:founderHeroFade .7s ease both;
+  filter:saturate(.98) contrast(1.02) brightness(.93);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 7%,rgba(0,0,0,.55) 18%,#000 33%,#000 100%);
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 7%,rgba(0,0,0,.55) 18%,#000 33%,#000 100%);
+  animation:founderHeroFade 1.05s cubic-bezier(.2,.75,.2,1) both;
+}
+.hero-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(90deg,
+    #2a1712 0%,
+    rgba(42,23,18,.98) 30%,
+    rgba(42,23,18,.90) 36%,
+    rgba(42,23,18,.68) 42%,
+    rgba(42,23,18,.38) 48%,
+    rgba(42,23,18,.12) 56%,
+    rgba(42,23,18,0) 64%);
 }
 .hero::after{
-  background:linear-gradient(90deg,rgba(31,17,13,.76) 0%,rgba(31,17,13,.58) 35%,rgba(31,17,13,.24) 58%,rgba(31,17,13,.04) 82%,rgba(20,11,9,.06) 100%) !important;
+  z-index:1;
+  background:linear-gradient(90deg,rgba(22,12,10,.18) 0%,rgba(22,12,10,.12) 38%,rgba(22,12,10,.04) 68%,rgba(20,11,9,.08) 100%) !important;
 }
-@keyframes founderHeroFade{from{opacity:.25;transform:scale(1.02)}to{opacity:1;transform:scale(1)}}
+.hero-content{z-index:3}
+@keyframes founderHeroFade{
+  from{opacity:0;transform:scale(1.025) translateX(10px)}
+  to{opacity:1;transform:scale(1) translateX(0)}
+}
 
 /* Yandex map */
 .location-map{
@@ -98,11 +121,12 @@
   }
   .brand small{font-family:var(--sans);letter-spacing:.5em}
 
-  /* Hero */
+  /* Hero — do not stretch the desktop portrait vertically on phone */
   .hero{
     height:710px;
     min-height:710px;
     border-radius:0 0 28px 28px;
+    background:#24130f;
   }
   .hero-content{
     height:710px;
@@ -115,16 +139,30 @@
     padding:0 22px 28px;
     justify-content:flex-end;
   }
+  .hero-media{
+    background:#24130f;
+  }
   .hero-media img.founder-hero-loaded{
     width:100%;
-    height:100%;
+    height:535px;
+    top:0;
     right:0;
     object-fit:cover;
-    object-position:56% center;
-    filter:saturate(.98) contrast(1.02) brightness(.86);
+    object-position:center 18%;
+    filter:saturate(.98) contrast(1.02) brightness(.94);
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 63%,rgba(0,0,0,.92) 73%,rgba(0,0,0,.50) 88%,transparent 100%);
+    mask-image:linear-gradient(180deg,#000 0%,#000 63%,rgba(0,0,0,.92) 73%,rgba(0,0,0,.50) 88%,transparent 100%);
+  }
+  .hero-media::after{
+    background:linear-gradient(180deg,
+      rgba(36,19,15,0) 0%,
+      rgba(36,19,15,.02) 43%,
+      rgba(36,19,15,.22) 62%,
+      rgba(36,19,15,.72) 78%,
+      #24130f 96%);
   }
   .hero::after{
-    background:linear-gradient(180deg,rgba(19,10,8,.05) 0%,rgba(19,10,8,.08) 35%,rgba(19,10,8,.30) 62%,rgba(19,10,8,.76) 100%) !important;
+    background:linear-gradient(180deg,rgba(19,10,8,.04) 0%,rgba(19,10,8,.04) 38%,rgba(19,10,8,.16) 58%,rgba(19,10,8,.58) 82%,rgba(19,10,8,.72) 100%) !important;
   }
   .hero-sub.mobile-only{
     display:block;
@@ -289,6 +327,7 @@
 @media (max-width: 380px){
   .hero,.hero-content,.hero-copy{height:690px;min-height:690px}
   .hero-copy{padding-left:18px;padding-right:18px;padding-bottom:24px}
+  .hero-media img.founder-hero-loaded{height:515px}
   .hero-sub.mobile-only{font-size:42px;max-width:285px}
   .hero-loyalty{font-size:13px}
   .cta-card,.cta-content{min-height:368px !important}
