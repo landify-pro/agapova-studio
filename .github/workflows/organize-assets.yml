@@ -1,0 +1,42 @@
+name: Organize image assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '*.jpg'
+      - '.github/workflows/organize-assets.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  organize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Move root JPG files into assets/images
+        shell: bash
+        run: |
+          mkdir -p assets/images
+          shopt -s nullglob
+          files=( *.jpg )
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No root JPG files to move"
+            exit 0
+          fi
+          git mv -- "${files[@]}" assets/images/
+
+      - name: Commit organized assets
+        shell: bash
+        run: |
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Organize image assets [skip ci]"
+          git push
