@@ -1,4 +1,71 @@
-/* AGAPOVA STUDIO — mobile polish / QA fixes */
+/* AGAPOVA STUDIO — founder hero, Yandex map, mobile polish */
+
+/* Founder portrait hero — loaded by enhancements.js from hero/part-*.txt */
+.hero-media{
+  background:linear-gradient(90deg,#2a1712 0%,#3a2118 48%,#1d100d 100%);
+}
+.hero-media img.founder-hero-loaded{
+  position:absolute;
+  top:0;
+  right:0;
+  left:auto;
+  width:58%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 42%;
+  filter:saturate(.98) contrast(1.02) brightness(.94);
+  animation:founderHeroFade .7s ease both;
+}
+.hero::after{
+  background:linear-gradient(90deg,rgba(31,17,13,.76) 0%,rgba(31,17,13,.58) 35%,rgba(31,17,13,.24) 58%,rgba(31,17,13,.04) 82%,rgba(20,11,9,.06) 100%) !important;
+}
+@keyframes founderHeroFade{from{opacity:.25;transform:scale(1.02)}to{opacity:1;transform:scale(1)}}
+
+/* Yandex map */
+.location-map{
+  background:#f3efeb;
+  color:#1b1312;
+  padding:50px 0 62px;
+}
+.location-map__head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:36px;
+  margin-bottom:22px;
+}
+.location-map__eyebrow{
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#816d65;
+  margin-bottom:8px;
+}
+.location-map h2{
+  font-family:var(--serif);
+  font-size:62px;
+  line-height:.92;
+  font-weight:400;
+  letter-spacing:-.02em;
+  margin:0;
+}
+.location-map__info{
+  display:grid;
+  gap:6px;
+  text-align:right;
+  font-size:14px;
+  color:#75655f;
+}
+.location-map__info strong{font-weight:500;color:#1b1312}
+.location-map__info a{color:#7b4c38;text-decoration:underline;text-underline-offset:4px}
+.location-map__frame{
+  height:430px;
+  border-radius:24px;
+  overflow:hidden;
+  background:#ddd;
+  box-shadow:0 18px 42px rgba(43,24,19,.1);
+}
+.location-map__frame iframe{display:block;width:100%;height:100%;border:0}
 
 @media (max-width: 760px) {
   :root{
@@ -47,6 +114,17 @@
     min-height:710px;
     padding:0 22px 28px;
     justify-content:flex-end;
+  }
+  .hero-media img.founder-hero-loaded{
+    width:100%;
+    height:100%;
+    right:0;
+    object-fit:cover;
+    object-position:56% center;
+    filter:saturate(.98) contrast(1.02) brightness(.86);
+  }
+  .hero::after{
+    background:linear-gradient(180deg,rgba(19,10,8,.05) 0%,rgba(19,10,8,.08) 35%,rgba(19,10,8,.30) 62%,rgba(19,10,8,.76) 100%) !important;
   }
   .hero-sub.mobile-only{
     display:block;
@@ -143,7 +221,7 @@
   .reviews-carousel{align-items:center}
   .v53-review-dots{margin-top:10px !important;margin-bottom:0 !important}
 
-  /* Final card: natural flow, equal spacing, no dead zones */
+  /* Final card */
   .cta{padding-top:8px !important}
   .cta-card{
     height:auto !important;
@@ -160,20 +238,10 @@
     justify-content:flex-start !important;
     position:relative;
   }
-  .cta-copy{
-    width:100%;
-    margin:0 !important;
-  }
-  .cta-copy h2.mobile-only{
-    margin:0 0 10px !important;
-  }
-  .cta-copy p.mobile-only{
-    margin:0 0 18px !important;
-    max-width:250px !important;
-  }
-  .cta-copy .dark-pill{
-    margin:0 !important;
-  }
+  .cta-copy{width:100%;margin:0 !important}
+  .cta-copy h2.mobile-only{margin:0 0 10px !important}
+  .cta-copy p.mobile-only{margin:0 0 18px !important;max-width:250px !important}
+  .cta-copy .dark-pill{margin:0 !important}
   .footer-brand{
     position:static !important;
     left:auto !important;
@@ -187,9 +255,7 @@
     white-space:nowrap;
     z-index:3;
   }
-  .footer-brand small{
-    margin-top:7px !important;
-  }
+  .footer-brand small{margin-top:7px !important}
   .footer-socials.social-links{
     position:static !important;
     left:auto !important;
@@ -210,6 +276,14 @@
     height:32px !important;
     flex:0 0 32px;
   }
+
+  /* Map */
+  .location-map{padding:28px 0 32px}
+  .location-map__head{display:block;margin-bottom:14px}
+  .location-map__eyebrow{font-size:9px;margin-bottom:5px}
+  .location-map h2{font-size:38px;margin-bottom:12px}
+  .location-map__info{text-align:left;font-size:12px;gap:4px}
+  .location-map__frame{height:320px;border-radius:18px}
 }
 
 @media (max-width: 380px){
@@ -217,9 +291,7 @@
   .hero-copy{padding-left:18px;padding-right:18px;padding-bottom:24px}
   .hero-sub.mobile-only{font-size:42px;max-width:285px}
   .hero-loyalty{font-size:13px}
-
-  .cta-card,
-  .cta-content{min-height:368px !important}
+  .cta-card,.cta-content{min-height:368px !important}
   .footer-brand{margin-top:36px !important;font-size:22px !important}
   .footer-socials.social-links{margin-top:18px !important;gap:9px !important}
   .footer-socials.social-links a{width:30px !important;height:30px !important;flex-basis:30px}
