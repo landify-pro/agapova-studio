@@ -6,6 +6,7 @@ on:
     paths:
       - 'mobile-fixes.css'
       - 'hero-polish.css'
+      - 'hero-refine-v3.css'
       - 'enhancements.js'
       - '.github/workflows/apply-mobile-polish.yml'
 
@@ -42,10 +43,19 @@ jobs:
           if 'hero-polish.css' not in s:
               s = s.replace('</head>', hero_css_tag + '\n</head>')
 
-          js_tag = '<script defer src="enhancements.js?v=3"></script>'
+          refine_css_tag = '<link rel="stylesheet" href="hero-refine-v3.css?v=1">'
+          if 'hero-refine-v3.css' not in s:
+              s = s.replace('</head>', refine_css_tag + '\n</head>')
+
+          old_hero = '<div class="hero-media"><img alt="AGAPOVA STUDIO" src="assets/images/hero.jpg"/></div>'
+          new_hero = '<div class="hero-media"><picture><source media="(max-width:760px)" srcset="assets/images/hero-founder-mobile.jpg?v=20260905b"/><img alt="Олеся Агапова — основательница AGAPOVA STUDIO" src="assets/images/hero-founder-desktop.jpg?v=20260905b" fetchpriority="high" decoding="async"/></picture></div>'
+          s = s.replace(old_hero, new_hero)
+
+          js_tag = '<script defer src="enhancements.js?v=4"></script>'
           for old in [
               '<script defer src="enhancements.js?v=1"></script>',
-              '<script defer src="enhancements.js?v=2"></script>'
+              '<script defer src="enhancements.js?v=2"></script>',
+              '<script defer src="enhancements.js?v=3"></script>'
           ]:
               s = s.replace(old, js_tag)
           if 'enhancements.js' not in s:
@@ -60,6 +70,6 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add index.html
-            git commit -m "Refresh AGAPOVA hero assets [skip ci]"
+            git commit -m "Apply AGAPOVA mobile hero and footer polish [skip ci]"
             git push
           fi
