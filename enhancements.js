@@ -1,6 +1,6 @@
 (() => {
-  const HERO_DESKTOP = 'assets/images/hero-founder-desktop.jpg?v=20260905a';
-  const HERO_MOBILE = 'assets/images/hero-founder-mobile.jpg?v=20260905a';
+  const HERO_DESKTOP = 'assets/images/hero-founder-desktop.jpg?v=20260905b';
+  const HERO_MOBILE = 'assets/images/hero-founder-mobile.jpg?v=20260905b';
 
   function setFounderHero(){
     const heroImg = document.querySelector('.hero-media img');
@@ -42,7 +42,7 @@
       <div class="container location-map__frame">
         <iframe src="https://yandex.ru/map-widget/v1/?ll=87.137265%2C53.769699&mode=search&text=Agapova%20Studio%2C%20Новокузнецк%2C%20Запорожская%2073Б&z=16" loading="lazy" allowfullscreen="true" title="AGAPOVA STUDIO на Яндекс Картах"></iframe>
       </div>`;
-    footer.insertAdjacentElement('afterend', section);
+    footer.insertAdjacentElement('beforebegin', section);
   }
 
   const boot = () => {
