@@ -34,12 +34,20 @@ jobs:
           if 'mobile-fixes.css' not in s:
               s = s.replace('</head>', css_tag + '\n</head>')
 
-          hero_css_tag = '<link rel="stylesheet" href="hero-polish.css?v=1">'
+          hero_css_tag = '<link rel="stylesheet" href="hero-polish.css?v=2">'
+          for old in [
+              '<link rel="stylesheet" href="hero-polish.css?v=1">'
+          ]:
+              s = s.replace(old, hero_css_tag)
           if 'hero-polish.css' not in s:
               s = s.replace('</head>', hero_css_tag + '\n</head>')
 
-          js_tag = '<script defer src="enhancements.js?v=2"></script>'
-          s = s.replace('<script defer src="enhancements.js?v=1"></script>', js_tag)
+          js_tag = '<script defer src="enhancements.js?v=3"></script>'
+          for old in [
+              '<script defer src="enhancements.js?v=1"></script>',
+              '<script defer src="enhancements.js?v=2"></script>'
+          ]:
+              s = s.replace(old, js_tag)
           if 'enhancements.js' not in s:
               s = s.replace('</body>', js_tag + '\n</body>')
 
@@ -52,6 +60,6 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add index.html
-            git commit -m "Load polished AGAPOVA hero [skip ci]"
+            git commit -m "Refresh AGAPOVA hero assets [skip ci]"
             git push
           fi
