@@ -1,0 +1,141 @@
+/* AGAPOVA STUDIO — mobile hero close-up + desktop map/footer cleanup */
+
+@media (max-width:760px){
+  .hero{
+    height:760px !important;
+    min-height:760px !important;
+    border-radius:0 0 28px 28px !important;
+    overflow:hidden !important;
+  }
+
+  .hero-content,
+  .hero-copy{
+    height:760px !important;
+    min-height:760px !important;
+  }
+
+  .hero-copy{
+    padding:0 18px 24px !important;
+    justify-content:flex-end !important;
+  }
+
+  .hero-media img,
+  .hero-media img.founder-hero-loaded{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:center center !important;
+    transform:scale(1.42) !important;
+    transform-origin:72% 68% !important;
+    animation:none !important;
+    filter:saturate(1.01) contrast(1.015) brightness(.96) !important;
+  }
+
+  .hero-media::after{
+    background:
+      linear-gradient(90deg,rgba(19,10,8,.48) 0%,rgba(19,10,8,.22) 38%,rgba(19,10,8,.06) 67%,rgba(19,10,8,0) 100%),
+      linear-gradient(180deg,rgba(8,5,4,.05) 0%,rgba(8,5,4,.08) 31%,rgba(8,5,4,.26) 58%,rgba(8,5,4,.67) 82%,rgba(8,5,4,.84) 100%) !important;
+  }
+
+  .hero-sub.mobile-only{
+    font-size:50px !important;
+    line-height:.92 !important;
+    max-width:245px !important;
+    margin:0 0 13px !important;
+  }
+
+  .hero-loyalty{
+    font-size:13px !important;
+    line-height:1.34 !important;
+    max-width:245px !important;
+    margin:0 0 15px !important;
+  }
+
+  .hero-main-cta{
+    margin:0 0 15px !important;
+  }
+
+  .hero-bottom{margin:0 !important}
+  .watch-link{gap:12px !important}
+  .play-circle{width:78px !important;height:78px !important}
+  .watch-link b{font-size:13px !important;line-height:1.32 !important}
+}
+
+@media (max-width:390px){
+  .hero,.hero-content,.hero-copy{height:730px !important;min-height:730px !important}
+  .hero-media img,.hero-media img.founder-hero-loaded{
+    transform:scale(1.38) !important;
+    transform-origin:73% 68% !important;
+  }
+  .hero-sub.mobile-only{font-size:46px !important;max-width:230px !important}
+}
+
+@media (min-width:761px){
+  .location-map{
+    background:#160d0b !important;
+    padding:30px 0 34px !important;
+    border-top:1px solid rgba(255,255,255,.07) !important;
+  }
+
+  .location-map__head{
+    display:flex !important;
+    justify-content:space-between !important;
+    align-items:end !important;
+    gap:40px !important;
+    padding-bottom:22px !important;
+    color:#fff !important;
+  }
+
+  .location-map__head h2{
+    margin:6px 0 0 !important;
+    font-family:var(--serif) !important;
+    font-size:58px !important;
+    line-height:.95 !important;
+    font-weight:400 !important;
+  }
+
+  .location-map__info{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-end !important;
+    gap:6px !important;
+    text-align:right !important;
+    font-size:14px !important;
+    color:rgba(255,255,255,.78) !important;
+  }
+
+  .location-map__info strong{color:#fff !important;font-weight:500 !important}
+  .location-map__info a{color:#d8a693 !important;border-bottom:1px dashed rgba(216,166,147,.7) !important;padding-bottom:2px !important}
+
+  .location-map__frame{
+    overflow:hidden !important;
+    border-radius:22px !important;
+    box-shadow:0 18px 44px rgba(0,0,0,.25) !important;
+  }
+
+  .location-map__frame iframe{
+    display:block !important;
+    width:100% !important;
+    height:500px !important;
+    border:0 !important;
+  }
+
+  .site-footer{
+    background:#130b09 !important;
+    padding:22px 0 28px !important;
+    border-top:1px solid rgba(255,255,255,.07) !important;
+  }
+
+  .site-footer .container{
+    display:grid !important;
+    grid-template-columns:minmax(180px,220px) 1fr auto auto !important;
+    align-items:center !important;
+    gap:28px !important;
+  }
+
+  .site-footer .brand{font-size:21px !important}
+  .site-footer .brand small{font-size:8px !important;letter-spacing:.45em !important}
+  .copyright{font-size:12px !important;line-height:1.5 !important;color:rgba(255,255,255,.65) !important;text-align:center !important}
+  .footer-contacts{font-size:13px !important;line-height:1.55 !important;color:rgba(255,255,255,.84) !important;text-align:right !important}
+  .socials.social-links{gap:9px !important}
+}
