@@ -31,7 +31,7 @@
   }
   .brand small{font-family:var(--sans);letter-spacing:.5em}
 
-  /* Hero: same premium typography as desktop + enough breathing room */
+  /* Hero */
   .hero{
     height:710px;
     min-height:710px;
@@ -81,7 +81,7 @@
   .play-circle::after{font-size:19px}
   .watch-link b{font-size:13px;line-height:1.35;max-width:155px}
 
-  /* Typography consistency throughout mobile */
+  /* Typography consistency */
   .about-copy .section-title{font-size:33px;line-height:1}
   .services .section-title,
   .team-copy h2,
@@ -90,7 +90,7 @@
   .service-mobile-body h3{font-size:24px;line-height:1}
   .cta-copy h2.mobile-only{font-size:31px;line-height:1;max-width:240px}
 
-  /* Team: never crop people out */
+  /* Team */
   .team-group{
     padding:0;
     background:#1b100d;
@@ -108,7 +108,7 @@
     background:#1b100d;
   }
 
-  /* Works: portrait cards so hair / faces have vertical space */
+  /* Works */
   .work-card{
     flex:0 0 calc(50% - 4.5px);
     aspect-ratio:3/4 !important;
@@ -119,10 +119,9 @@
     object-fit:cover;
   }
 
-  /* Reviews: same card height for both images, full review visible */
-  .reviews-track{
-    align-items:stretch !important;
-  }
+  /* Reviews */
+  .reviews{padding-bottom:12px !important}
+  .reviews-track{align-items:stretch !important}
   .review-image-card{
     height:auto !important;
     aspect-ratio:1/1 !important;
@@ -142,45 +141,74 @@
     object-position:center !important;
   }
   .reviews-carousel{align-items:center}
+  .v53-review-dots{margin-top:10px !important;margin-bottom:0 !important}
 
-  /* Final card: more vertical breathing room below the booking button */
-  .cta-card,
-  .cta-content{
-    min-height:430px !important;
-    height:430px !important;
+  /* Final card: natural flow, equal spacing, no dead zones */
+  .cta{padding-top:8px !important}
+  .cta-card{
+    height:auto !important;
+    min-height:378px !important;
+    border-radius:18px 18px 0 0 !important;
   }
   .cta-content{
-    padding:18px 16px 170px !important;
+    height:auto !important;
+    min-height:378px !important;
+    padding:20px 16px 28px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    justify-content:flex-start !important;
     position:relative;
   }
-  .footer-brand{
-    position:absolute !important;
-    left:50% !important;
-    right:auto !important;
-    bottom:92px !important;
-    transform:translateX(-50%) !important;
+  .cta-copy{
+    width:100%;
     margin:0 !important;
+  }
+  .cta-copy h2.mobile-only{
+    margin:0 0 10px !important;
+  }
+  .cta-copy p.mobile-only{
+    margin:0 0 18px !important;
+    max-width:250px !important;
+  }
+  .cta-copy .dark-pill{
+    margin:0 !important;
+  }
+  .footer-brand{
+    position:static !important;
+    left:auto !important;
+    right:auto !important;
+    bottom:auto !important;
+    transform:none !important;
+    align-self:center !important;
+    margin:42px auto 0 !important;
+    text-align:center !important;
     font-size:24px !important;
     white-space:nowrap;
     z-index:3;
   }
+  .footer-brand small{
+    margin-top:7px !important;
+  }
   .footer-socials.social-links{
-    position:absolute !important;
-    left:50% !important;
+    position:static !important;
+    left:auto !important;
     right:auto !important;
-    bottom:38px !important;
-    transform:translateX(-50%) !important;
+    bottom:auto !important;
+    transform:none !important;
+    align-self:center !important;
     display:flex !important;
-    justify-content:center;
-    gap:10px !important;
+    justify-content:center !important;
+    margin:20px auto 0 !important;
+    gap:11px !important;
     width:max-content;
     max-width:calc(100% - 32px);
     z-index:3;
   }
   .footer-socials.social-links a{
-    width:31px !important;
-    height:31px !important;
-    flex:0 0 31px;
+    width:32px !important;
+    height:32px !important;
+    flex:0 0 32px;
   }
 }
 
@@ -189,8 +217,10 @@
   .hero-copy{padding-left:18px;padding-right:18px;padding-bottom:24px}
   .hero-sub.mobile-only{font-size:42px;max-width:285px}
   .hero-loyalty{font-size:13px}
-  .cta-card,.cta-content{min-height:440px !important;height:440px !important}
-  .footer-brand{bottom:94px !important;font-size:22px !important}
-  .footer-socials.social-links{bottom:40px !important;gap:9px !important}
+
+  .cta-card,
+  .cta-content{min-height:368px !important}
+  .footer-brand{margin-top:36px !important;font-size:22px !important}
+  .footer-socials.social-links{margin-top:18px !important;gap:9px !important}
   .footer-socials.social-links a{width:30px !important;height:30px !important;flex-basis:30px}
 }
