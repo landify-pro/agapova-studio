@@ -136,15 +136,45 @@
   }
   .reviews-carousel{align-items:center}
 
-  /* Bottom card: keep logo/socials away from the content */
+  /* Final card: separate logo and socials and keep them above iPhone/Telegram browser chrome */
   .cta-card,
   .cta-content{
-    min-height:275px;
-    height:275px;
+    min-height:350px !important;
+    height:350px !important;
   }
-  .cta-content{padding:18px 16px 54px}
-  .footer-brand{bottom:13px}
-  .footer-socials.social-links{bottom:14px}
+  .cta-content{
+    padding:18px 16px 150px !important;
+    position:relative;
+  }
+  .footer-brand{
+    position:absolute !important;
+    left:50% !important;
+    right:auto !important;
+    bottom:112px !important;
+    transform:translateX(-50%) !important;
+    margin:0 !important;
+    font-size:24px !important;
+    white-space:nowrap;
+    z-index:3;
+  }
+  .footer-socials.social-links{
+    position:absolute !important;
+    left:50% !important;
+    right:auto !important;
+    bottom:64px !important;
+    transform:translateX(-50%) !important;
+    display:flex !important;
+    justify-content:center;
+    gap:10px !important;
+    width:max-content;
+    max-width:calc(100% - 32px);
+    z-index:3;
+  }
+  .footer-socials.social-links a{
+    width:31px !important;
+    height:31px !important;
+    flex:0 0 31px;
+  }
 }
 
 @media (max-width: 380px){
@@ -152,4 +182,8 @@
   .hero-copy{padding-left:18px;padding-right:18px;padding-bottom:24px}
   .hero-sub.mobile-only{font-size:42px;max-width:285px}
   .hero-loyalty{font-size:13px}
+  .cta-card,.cta-content{min-height:360px !important;height:360px !important}
+  .footer-brand{bottom:116px !important;font-size:22px !important}
+  .footer-socials.social-links{bottom:68px !important;gap:9px !important}
+  .footer-socials.social-links a{width:30px !important;height:30px !important;flex-basis:30px}
 }
