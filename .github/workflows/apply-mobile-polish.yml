@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'mobile-fixes.css'
+      - 'enhancements.js'
       - '.github/workflows/apply-mobile-polish.yml'
 
 permissions:
@@ -32,8 +33,9 @@ jobs:
           if 'mobile-fixes.css' not in s:
               s = s.replace('</head>', css_tag + '\n</head>')
 
-          js_tag = '<script defer src="enhancements.js?v=1"></script>'
-          if js_tag not in s:
+          js_tag = '<script defer src="enhancements.js?v=2"></script>'
+          s = s.replace('<script defer src="enhancements.js?v=1"></script>', js_tag)
+          if 'enhancements.js' not in s:
               s = s.replace('</body>', js_tag + '\n</body>')
 
           p.write_text(s, encoding='utf-8')
