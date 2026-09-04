@@ -11,9 +11,12 @@
         return (await r.text()).trim();
       }));
       heroImg.src = 'data:image/jpeg;base64,' + parts.join('');
-      heroImg.classList.add('founder-hero-loaded');
+      heroImg.decoding = 'async';
+      try{ await heroImg.decode(); }catch(_){ /* Safari may resolve on load instead */ }
+      requestAnimationFrame(() => heroImg.classList.add('founder-hero-loaded'));
     }catch(err){
       console.warn('Founder hero fallback is being used', err);
+      heroImg.classList.add('founder-hero-loaded');
     }
   }
 
