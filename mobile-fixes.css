@@ -119,16 +119,23 @@
     object-fit:cover;
   }
 
-  /* Reviews: show the complete uploaded review instead of cropping its text */
-  .reviews-track{align-items:flex-start}
+  /* Reviews: same card height for both images, full review visible, no giant empty gap */
+  .reviews-track{
+    align-items:stretch !important;
+  }
   .review-image-card{
-    height:auto;
+    height:auto !important;
+    aspect-ratio:1/1 !important;
     background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
   }
   .review-image-card img{
     display:block;
     width:100%;
-    height:auto !important;
+    height:100% !important;
     max-height:none !important;
     aspect-ratio:auto !important;
     object-fit:contain !important;
