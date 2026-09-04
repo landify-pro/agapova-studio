@@ -1,22 +1,21 @@
 (() => {
-  const HERO_PARTS = [1,2,3,4,5,6,7].map(n => `hero/part-${n}.txt`);
+  const HERO_DESKTOP = 'assets/images/hero-founder-desktop.jpg?v=20260905a';
+  const HERO_MOBILE = 'assets/images/hero-founder-mobile.jpg?v=20260905a';
 
-  async function loadFounderHero(){
+  function setFounderHero(){
     const heroImg = document.querySelector('.hero-media img');
     if(!heroImg) return;
-    try{
-      const parts = await Promise.all(HERO_PARTS.map(async url => {
-        const r = await fetch(url, {cache:'force-cache'});
-        if(!r.ok) throw new Error(`Hero part ${url}: ${r.status}`);
-        return (await r.text()).trim();
-      }));
-      heroImg.src = 'data:image/jpeg;base64,' + parts.join('');
-      heroImg.decoding = 'async';
-      try{ await heroImg.decode(); }catch(_){ /* Safari may resolve on load instead */ }
+    const mobile = window.matchMedia('(max-width:760px)').matches;
+    const nextSrc = mobile ? HERO_MOBILE : HERO_DESKTOP;
+    if(heroImg.getAttribute('src') !== nextSrc){
+      heroImg.src = nextSrc;
+    }
+    heroImg.decoding = 'async';
+    heroImg.addEventListener('load', () => {
       requestAnimationFrame(() => heroImg.classList.add('founder-hero-loaded'));
-    }catch(err){
-      console.warn('Founder hero fallback is being used', err);
-      heroImg.classList.add('founder-hero-loaded');
+    }, {once:true});
+    if(heroImg.complete){
+      requestAnimationFrame(() => heroImg.classList.add('founder-hero-loaded'));
     }
   }
 
@@ -47,8 +46,15 @@
   }
 
   const boot = () => {
-    loadFounderHero();
+    setFounderHero();
     addYandexMap();
+    const mq = window.matchMedia('(max-width:760px)');
+    const onChange = () => {
+      const heroImg = document.querySelector('.hero-media img');
+      if(heroImg) heroImg.classList.remove('founder-hero-loaded');
+      setFounderHero();
+    };
+    if(mq.addEventListener) mq.addEventListener('change', onChange);
   };
 
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, {once:true});
