@@ -1,0 +1,198 @@
+/* AGAPOVA STUDIO — hero polish v1
+   Fixes hard desktop seam, reduces founder portrait upscaling,
+   keeps mobile typography aligned with desktop and removes flash of old hero. */
+
+.hero{
+  background:
+    radial-gradient(75% 120% at 78% 24%, rgba(124,82,62,.20) 0%, rgba(124,82,62,0) 48%),
+    linear-gradient(90deg,#21110e 0%,#321a14 34%,#2b1712 62%,#1c0f0c 100%) !important;
+}
+
+.hero-media{
+  background:transparent !important;
+  overflow:hidden;
+}
+
+/* Don't flash the previous brunette while the founder portrait is decoding. */
+.hero-media > img:not(.founder-hero-loaded){
+  opacity:0 !important;
+}
+
+@media (min-width:761px){
+  .hero{min-height:860px}
+
+  .hero-media > img.founder-hero-loaded{
+    position:absolute !important;
+    top:0 !important;
+    right:0 !important;
+    left:auto !important;
+    width:min(46vw,820px) !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:center 40% !important;
+    opacity:1 !important;
+    filter:saturate(.98) contrast(1.015) brightness(.95) !important;
+    transform:none !important;
+    animation:none !important;
+    transition:opacity .85s cubic-bezier(.2,.75,.2,1),filter .85s ease !important;
+    -webkit-mask-image:linear-gradient(90deg,
+      transparent 0%,
+      rgba(0,0,0,.08) 6%,
+      rgba(0,0,0,.30) 13%,
+      rgba(0,0,0,.68) 24%,
+      #000 39%,
+      #000 100%) !important;
+    mask-image:linear-gradient(90deg,
+      transparent 0%,
+      rgba(0,0,0,.08) 6%,
+      rgba(0,0,0,.30) 13%,
+      rgba(0,0,0,.68) 24%,
+      #000 39%,
+      #000 100%) !important;
+  }
+
+  /* Wide feather on top of the portrait = no visible vertical join. */
+  .hero-media::after{
+    content:"" !important;
+    position:absolute !important;
+    z-index:2 !important;
+    inset:0 !important;
+    pointer-events:none !important;
+    background:linear-gradient(90deg,
+      #21110e 0%,
+      rgba(33,17,14,.995) 28%,
+      rgba(33,17,14,.96) 35%,
+      rgba(33,17,14,.82) 42%,
+      rgba(33,17,14,.53) 49%,
+      rgba(33,17,14,.24) 56%,
+      rgba(33,17,14,.06) 64%,
+      rgba(33,17,14,0) 72%) !important;
+  }
+
+  .hero::after{
+    z-index:1 !important;
+    background:linear-gradient(90deg,
+      rgba(18,9,7,.22) 0%,
+      rgba(18,9,7,.12) 42%,
+      rgba(18,9,7,.03) 68%,
+      rgba(18,9,7,.09) 100%) !important;
+  }
+
+  .hero-content{
+    z-index:3 !important;
+    min-height:860px !important;
+    grid-template-columns:minmax(390px,520px) 1fr !important;
+    align-items:center !important;
+    padding-top:132px !important;
+    padding-bottom:58px !important;
+  }
+
+  .hero-copy{max-width:500px !important}
+  .hero-title{font-size:112px !important;line-height:.84 !important}
+  .hero-sub.desktop-only{font-size:30px !important;margin:8px 0 26px !important}
+  .hero-loyalty{margin-bottom:26px !important}
+}
+
+@media (max-width:760px){
+  :root{
+    --serif:"Cormorant Garamond", Georgia, serif !important;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
+  }
+
+  .brand,
+  .hero-sub.mobile-only,
+  .section-title,
+  .about-copy .section-title,
+  .services .section-title,
+  .team-copy h2,
+  .works .section-title,
+  .reviews-head h2,
+  .cta-copy h2.mobile-only,
+  .service-mobile-body h3,
+  .stat strong{
+    font-family:var(--serif) !important;
+  }
+
+  .hero{
+    height:700px !important;
+    min-height:700px !important;
+    border-radius:0 0 28px 28px !important;
+    background:#21110e !important;
+  }
+
+  .hero-content,
+  .hero-copy{
+    height:700px !important;
+    min-height:700px !important;
+  }
+
+  .hero-copy{
+    padding:0 20px 27px !important;
+    justify-content:flex-end !important;
+  }
+
+  .hero-media > img.founder-hero-loaded{
+    position:absolute !important;
+    top:0 !important;
+    right:0 !important;
+    left:0 !important;
+    width:100% !important;
+    height:530px !important;
+    object-fit:cover !important;
+    object-position:center 17% !important;
+    opacity:1 !important;
+    filter:saturate(.98) contrast(1.01) brightness(.94) !important;
+    transform:none !important;
+    animation:none !important;
+    transition:opacity .65s ease !important;
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 67%,rgba(0,0,0,.82) 79%,rgba(0,0,0,.28) 92%,transparent 100%) !important;
+    mask-image:linear-gradient(180deg,#000 0%,#000 67%,rgba(0,0,0,.82) 79%,rgba(0,0,0,.28) 92%,transparent 100%) !important;
+  }
+
+  .hero-media::after{
+    content:"" !important;
+    position:absolute !important;
+    inset:0 !important;
+    z-index:2 !important;
+    pointer-events:none !important;
+    background:linear-gradient(180deg,
+      rgba(33,17,14,0) 0%,
+      rgba(33,17,14,0) 47%,
+      rgba(33,17,14,.20) 62%,
+      rgba(33,17,14,.74) 77%,
+      #21110e 91%) !important;
+  }
+
+  .hero::after{
+    z-index:1 !important;
+    background:linear-gradient(180deg,
+      rgba(12,7,5,.04) 0%,
+      rgba(12,7,5,.06) 42%,
+      rgba(12,7,5,.20) 62%,
+      rgba(12,7,5,.62) 84%,
+      rgba(12,7,5,.74) 100%) !important;
+  }
+
+  .hero-content{z-index:3 !important;padding:0 !important}
+  .hero-sub.mobile-only{
+    font-size:51px !important;
+    line-height:.93 !important;
+    font-weight:400 !important;
+    letter-spacing:-.025em !important;
+    max-width:300px !important;
+    margin:0 0 17px !important;
+  }
+  .hero-loyalty{font-size:14px !important;line-height:1.36 !important;margin:0 0 17px !important;max-width:285px !important}
+  .hero-main-cta{margin-bottom:17px !important}
+  .watch-link{margin-bottom:0 !important}
+}
+
+@media (max-width:380px){
+  .hero,.hero-content,.hero-copy{height:680px !important;min-height:680px !important}
+  .hero-media > img.founder-hero-loaded{height:510px !important}
+  .hero-sub.mobile-only{font-size:46px !important;max-width:280px !important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .hero-media > img.founder-hero-loaded{transition:none !important}
+}
