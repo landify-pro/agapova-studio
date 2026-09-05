@@ -1,0 +1,19 @@
+/* AGAPOVA STUDIO — mobile founder vertical position v4 */
+
+@media (max-width:760px){
+  .hero-media img,
+  .hero-media img.founder-hero-loaded{
+    width:160% !important;
+    right:-28% !important;
+    top:-405px !important;
+  }
+}
+
+@media (max-width:390px){
+  .hero-media img,
+  .hero-media img.founder-hero-loaded{
+    width:162% !important;
+    right:-30% !important;
+    top:-385px !important;
+  }
+}
