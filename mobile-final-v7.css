@@ -1,0 +1,70 @@
+/* AGAPOVA STUDIO — mobile final v7: neutral bronze hero, centered portrait, aligned headings */
+
+@media (max-width:760px){
+  /* Match the approved reference: warm bronze, but without the yellow/orange cast. */
+  .hero{
+    background:#2a170f !important;
+  }
+
+  .hero-media img,
+  .hero-media img.founder-hero-loaded{
+    width:158% !important;
+    right:-15% !important;
+    top:-365px !important;
+    filter:brightness(1.03) saturate(.96) contrast(1.035) hue-rotate(-2deg) !important;
+  }
+
+  .hero-media::after{
+    background:
+      radial-gradient(68% 54% at 24% 10%, rgba(151,82,45,.08) 0%, rgba(151,82,45,0) 72%),
+      linear-gradient(90deg,
+        rgba(22,10,7,.36) 0%,
+        rgba(22,10,7,.20) 32%,
+        rgba(22,10,7,.06) 58%,
+        rgba(22,10,7,0) 100%),
+      linear-gradient(180deg,
+        rgba(9,5,4,.01) 0%,
+        rgba(9,5,4,.02) 42%,
+        rgba(9,5,4,.15) 67%,
+        rgba(9,5,4,.58) 100%) !important;
+  }
+
+  /* One visual left edge for the main mobile section headings. */
+  .services .section-title,
+  .team-copy h2,
+  .works .section-title,
+  .reviews-head h2,
+  .location-map h2{
+    margin-left:4px !important;
+    text-align:left !important;
+  }
+
+  .team-copy{
+    padding-left:4px !important;
+    padding-right:4px !important;
+  }
+
+  .works-head{
+    padding-left:4px !important;
+    justify-content:flex-start !important;
+  }
+
+  .reviews-head{
+    margin-left:4px !important;
+    padding-left:0 !important;
+  }
+
+  .location-map__head{
+    padding-left:4px !important;
+    padding-right:4px !important;
+  }
+}
+
+@media (max-width:390px){
+  .hero-media img,
+  .hero-media img.founder-hero-loaded{
+    width:160% !important;
+    right:-17% !important;
+    top:-352px !important;
+  }
+}
