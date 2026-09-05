@@ -43,9 +43,10 @@ jobs:
           if 'hero-polish.css' not in s:
               s = s.replace('</head>', hero_css_tag + '\n</head>')
 
-          refine_css_tag = '<link rel="stylesheet" href="hero-refine-v3.css?v=2">'
+          refine_css_tag = '<link rel="stylesheet" href="hero-refine-v3.css?v=3">'
           for old in [
-              '<link rel="stylesheet" href="hero-refine-v3.css?v=1">'
+              '<link rel="stylesheet" href="hero-refine-v3.css?v=1">',
+              '<link rel="stylesheet" href="hero-refine-v3.css?v=2">'
           ]:
               s = s.replace(old, refine_css_tag)
           if 'hero-refine-v3.css' not in s:
@@ -74,6 +75,6 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add index.html
-            git commit -m "Apply final AGAPOVA mobile composition [skip ci]"
+            git commit -m "Apply AGAPOVA hero composition v3 [skip ci]"
             git push
           fi
