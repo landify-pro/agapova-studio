@@ -7,6 +7,7 @@ on:
       - 'mobile-fixes.css'
       - 'hero-polish.css'
       - 'hero-refine-v3.css'
+      - 'hero-mobile-up-v4.css'
       - 'enhancements.js'
       - '.github/workflows/apply-mobile-polish.yml'
 
@@ -52,6 +53,10 @@ jobs:
           if 'hero-refine-v3.css' not in s:
               s = s.replace('</head>', refine_css_tag + '\n</head>')
 
+          mobile_up_tag = '<link rel="stylesheet" href="hero-mobile-up-v4.css?v=1">'
+          if 'hero-mobile-up-v4.css' not in s:
+              s = s.replace('</head>', mobile_up_tag + '\n</head>')
+
           old_hero = '<div class="hero-media"><img alt="AGAPOVA STUDIO" src="assets/images/hero.jpg"/></div>'
           new_hero = '<div class="hero-media"><picture><source media="(max-width:760px)" srcset="assets/images/hero-founder-mobile.jpg?v=20260905b"/><img alt="Олеся Агапова — основательница AGAPOVA STUDIO" src="assets/images/hero-founder-desktop.jpg?v=20260905b" fetchpriority="high" decoding="async"/></picture></div>'
           s = s.replace(old_hero, new_hero)
@@ -75,6 +80,6 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add index.html
-            git commit -m "Apply AGAPOVA hero composition v3 [skip ci]"
+            git commit -m "Apply AGAPOVA mobile hero vertical position v4 [skip ci]"
             git push
           fi
