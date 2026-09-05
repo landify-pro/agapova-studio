@@ -1,7 +1,8 @@
 (() => {
   const HERO_DESKTOP = 'assets/images/hero-founder-desktop.jpg?v=20260905b';
   const HERO_MOBILE = 'assets/images/hero-founder-mobile.jpg?v=20260905b';
-  const MAP_URL = 'https://yandex.ru/maps/237/novokuznetsk/house/bE4YdwRnS0MCQFtpfXt3eHpqbQ%3D%3D/';
+  const MAP_URL = 'https://yandex.ru/maps/org/agapova_studio/171314439639/';
+  const MAP_EMBED = 'https://yandex.ru/map-widget/v1/?ll=87.137265%2C53.769699&mode=search&oid=171314439639&ol=biz&z=17';
 
   function setFounderHero(){
     const heroImg = document.querySelector('.hero-media img');
@@ -20,9 +21,37 @@
     }
   }
 
+  function normalizeYandexMap(section){
+    if(!section) return section;
+
+    const frame = section.querySelector('.location-map__frame');
+    if(frame){
+      frame.querySelectorAll('.location-map__pin').forEach(el => el.remove());
+      let iframe = frame.querySelector('iframe');
+      if(!iframe){
+        iframe = document.createElement('iframe');
+        frame.appendChild(iframe);
+      }
+      iframe.src = MAP_EMBED;
+      iframe.loading = 'lazy';
+      iframe.allowFullscreen = true;
+      iframe.title = 'AGAPOVA STUDIO на Яндекс Картах';
+    }
+
+    section.querySelectorAll('a').forEach(a => {
+      if(/Яндекс|картах|Карт/i.test(a.textContent || '')){
+        a.href = MAP_URL;
+        a.target = '_blank';
+        a.rel = 'noopener';
+      }
+    });
+
+    return section;
+  }
+
   function createYandexMap(){
     let section = document.querySelector('.location-map');
-    if(section) return section;
+    if(section) return normalizeYandexMap(section);
 
     section = document.createElement('section');
     section.className = 'location-map';
@@ -40,11 +69,7 @@
         </div>
       </div>
       <div class="container location-map__frame">
-        <iframe src="https://yandex.ru/map-widget/v1/?ll=87.137265%2C53.769699&z=18" loading="lazy" allowfullscreen="true" title="AGAPOVA STUDIO на Яндекс Картах"></iframe>
-        <a class="location-map__pin" href="${MAP_URL}" target="_blank" rel="noopener" aria-label="Открыть AGAPOVA STUDIO в Яндекс Картах">
-          <span class="location-map__pin-label">AGAPOVA STUDIO · 73Б</span>
-          <span class="location-map__pin-mark" aria-hidden="true"></span>
-        </a>
+        <iframe src="${MAP_EMBED}" loading="lazy" allowfullscreen="true" title="AGAPOVA STUDIO на Яндекс Картах"></iframe>
       </div>`;
     return section;
   }
