@@ -1,17 +1,17 @@
-/* AGAPOVA STUDIO — final mobile hero composition + seamless CTA/map/footer */
+/* AGAPOVA STUDIO — mobile hero v3 + desktop portrait balance + seamless CTA/map transition */
 
 @media (max-width:760px){
   .hero{
-    height:730px !important;
-    min-height:730px !important;
+    height:720px !important;
+    min-height:720px !important;
     border-radius:0 0 28px 28px !important;
     overflow:hidden !important;
   }
 
   .hero-content,
   .hero-copy{
-    height:730px !important;
-    min-height:730px !important;
+    height:720px !important;
+    min-height:720px !important;
   }
 
   .hero-copy{
@@ -21,50 +21,60 @@
     padding:0 !important;
   }
 
-  /* Bring the founder much higher/larger, closer to the reference. */
+  .hero-media,
+  .hero-media picture{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    overflow:hidden !important;
+  }
+
+  /* Use the portrait's natural aspect ratio so we can move the founder upward precisely. */
   .hero-media img,
   .hero-media img.founder-hero-loaded{
     position:absolute !important;
-    left:0 !important;
-    right:0 !important;
-    top:-92px !important;
+    width:158% !important;
+    height:auto !important;
+    max-width:none !important;
+    left:auto !important;
+    right:-27% !important;
+    top:-230px !important;
     bottom:auto !important;
-    width:100% !important;
-    height:calc(100% + 92px) !important;
-    object-fit:cover !important;
-    object-position:72% 62% !important;
-    transform:scale(1.50) !important;
-    transform-origin:74% 56% !important;
+    object-fit:initial !important;
+    object-position:center !important;
+    transform:none !important;
+    transform-origin:center !important;
     animation:none !important;
     filter:saturate(1.01) contrast(1.015) brightness(.96) !important;
   }
 
-  /* Keep the left side readable while preserving the portrait. */
+  /* Text protection without flattening the portrait. */
   .hero-media::after{
     background:
       linear-gradient(90deg,
-        rgba(20,10,8,.62) 0%,
-        rgba(20,10,8,.44) 27%,
-        rgba(20,10,8,.18) 49%,
-        rgba(20,10,8,.04) 70%,
+        rgba(20,10,8,.70) 0%,
+        rgba(20,10,8,.48) 29%,
+        rgba(20,10,8,.20) 50%,
+        rgba(20,10,8,.05) 70%,
         rgba(20,10,8,0) 100%),
       linear-gradient(180deg,
-        rgba(8,5,4,.04) 0%,
+        rgba(8,5,4,.03) 0%,
         rgba(8,5,4,.05) 34%,
-        rgba(8,5,4,.18) 58%,
-        rgba(8,5,4,.58) 82%,
-        rgba(8,5,4,.82) 100%) !important;
+        rgba(8,5,4,.22) 58%,
+        rgba(8,5,4,.62) 82%,
+        rgba(8,5,4,.86) 100%) !important;
   }
 
-  /* Use the empty upper-left zone for the message instead of wasting it. */
+  /* Fill the upper-left empty zone with the message. */
   .hero-sub.mobile-only{
     position:absolute !important;
     left:18px !important;
-    top:244px !important;
-    width:190px !important;
-    max-width:190px !important;
+    top:150px !important;
+    width:198px !important;
+    max-width:198px !important;
     margin:0 !important;
-    font-size:41px !important;
+    font-size:39px !important;
     line-height:.94 !important;
     letter-spacing:-.025em !important;
     z-index:4 !important;
@@ -73,9 +83,9 @@
   .hero-loyalty{
     position:absolute !important;
     left:19px !important;
-    top:374px !important;
-    width:190px !important;
-    max-width:190px !important;
+    top:280px !important;
+    width:195px !important;
+    max-width:195px !important;
     margin:0 !important;
     font-size:11.8px !important;
     line-height:1.38 !important;
@@ -83,11 +93,10 @@
     z-index:4 !important;
   }
 
-  /* CTA remains low and clear, as requested. */
   .hero-main-cta{
     position:absolute !important;
     left:18px !important;
-    bottom:118px !important;
+    bottom:112px !important;
     margin:0 !important;
     min-height:54px !important;
     z-index:5 !important;
@@ -102,36 +111,104 @@
   }
 
   .watch-link{gap:12px !important;margin:0 !important}
-  .play-circle{width:78px !important;height:78px !important}
+  .play-circle{width:76px !important;height:76px !important}
   .watch-link b{font-size:13px !important;line-height:1.32 !important;max-width:145px !important}
 }
 
 @media (max-width:390px){
-  .hero,.hero-content,.hero-copy{height:710px !important;min-height:710px !important}
+  .hero,.hero-content,.hero-copy{height:700px !important;min-height:700px !important}
   .hero-media img,.hero-media img.founder-hero-loaded{
-    top:-82px !important;
-    height:calc(100% + 82px) !important;
-    transform:scale(1.46) !important;
-    transform-origin:74% 57% !important;
+    width:160% !important;
+    right:-29% !important;
+    top:-220px !important;
   }
-  .hero-sub.mobile-only{top:232px !important;font-size:38px !important;width:176px !important;max-width:176px !important}
-  .hero-loyalty{top:354px !important;width:178px !important;max-width:178px !important;font-size:11.2px !important}
-  .hero-main-cta{bottom:112px !important}
-  .hero-bottom{bottom:17px !important}
+  .hero-sub.mobile-only{top:144px !important;font-size:36px !important;width:184px !important;max-width:184px !important}
+  .hero-loyalty{top:264px !important;width:182px !important;max-width:182px !important;font-size:11.2px !important}
+  .hero-main-cta{bottom:108px !important}
+  .hero-bottom{bottom:16px !important}
 }
 
 @media (min-width:761px){
-  /* Let the loyalty block dissolve naturally into the map section. */
+  /* Keep the founder visible on wide laptops instead of letting her drift off the right edge. */
+  .hero-media,
+  .hero-media picture{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    overflow:hidden !important;
+  }
+
+  .hero-media img,
+  .hero-media img.founder-hero-loaded{
+    position:absolute !important;
+    top:0 !important;
+    bottom:auto !important;
+    left:-7% !important;
+    right:auto !important;
+    width:108% !important;
+    height:100% !important;
+    max-width:none !important;
+    object-fit:cover !important;
+    object-position:center 44% !important;
+    transform:none !important;
+    transform-origin:center !important;
+    animation:founderDesktopSettle .85s cubic-bezier(.2,.75,.2,1) both !important;
+    filter:saturate(.99) contrast(1.015) brightness(.97) !important;
+  }
+
+  @keyframes founderDesktopSettle{
+    from{opacity:.45;left:-5%}
+    to{opacity:1;left:-7%}
+  }
+
+  .hero-media::after{
+    background:
+      linear-gradient(90deg,
+        rgba(19,10,8,.50) 0%,
+        rgba(19,10,8,.34) 27%,
+        rgba(19,10,8,.14) 48%,
+        rgba(19,10,8,.03) 67%,
+        rgba(19,10,8,0) 82%),
+      linear-gradient(180deg,rgba(7,4,3,.05) 0%,rgba(7,4,3,0) 48%,rgba(7,4,3,.10) 100%) !important;
+  }
+
+  .hero-content{
+    grid-template-columns:minmax(390px,520px) 1fr !important;
+  }
+
+  /* Let the loyalty card finish softly instead of hitting the map with a hard horizontal edge. */
   .cta{
     position:relative !important;
-    padding-bottom:0 !important;
-    background:linear-gradient(180deg,var(--bg) 0%,var(--bg) 10%,#24130f 78%,#160d0b 100%) !important;
+    padding-bottom:68px !important;
+    margin-bottom:-1px !important;
+    background:linear-gradient(180deg,
+      var(--bg) 0%,
+      var(--bg) 16%,
+      #cfc1b9 46%,
+      #5a3d32 72%,
+      #160d0b 100%) !important;
   }
+
+  .cta::after{
+    content:"" !important;
+    position:absolute !important;
+    left:0 !important;
+    right:0 !important;
+    bottom:0 !important;
+    height:190px !important;
+    pointer-events:none !important;
+    z-index:0 !important;
+    background:linear-gradient(180deg,rgba(22,13,11,0) 0%,rgba(22,13,11,.48) 50%,#160d0b 100%) !important;
+  }
+
+  .cta .container{position:relative !important;z-index:2 !important}
 
   .cta-card{
     position:relative !important;
-    border-radius:22px 22px 0 0 !important;
+    border-radius:22px !important;
     overflow:hidden !important;
+    box-shadow:0 22px 48px rgba(25,12,9,.18) !important;
   }
 
   .cta-card::after{
@@ -140,10 +217,10 @@
     left:0 !important;
     right:0 !important;
     bottom:0 !important;
-    height:150px !important;
+    height:165px !important;
     z-index:1 !important;
     pointer-events:none !important;
-    background:linear-gradient(180deg,rgba(22,13,11,0) 0%,rgba(22,13,11,.48) 56%,#160d0b 100%) !important;
+    background:linear-gradient(180deg,rgba(22,13,11,0) 0%,rgba(22,13,11,.36) 50%,rgba(22,13,11,.82) 100%) !important;
   }
 
   .cta-content{position:relative !important;z-index:2 !important}
@@ -153,7 +230,7 @@
     position:relative !important;
     margin-top:-1px !important;
     background:#160d0b !important;
-    padding:58px 0 38px !important;
+    padding:34px 0 40px !important;
     border-top:0 !important;
   }
 
@@ -163,9 +240,9 @@
     left:0 !important;
     right:0 !important;
     top:0 !important;
-    height:68px !important;
+    height:56px !important;
     pointer-events:none !important;
-    background:linear-gradient(180deg,#160d0b 0%,rgba(22,13,11,.98) 42%,rgba(22,13,11,0) 100%) !important;
+    background:linear-gradient(180deg,#160d0b 0%,rgba(22,13,11,.94) 44%,rgba(22,13,11,0) 100%) !important;
   }
 
   .location-map__head{
@@ -215,7 +292,6 @@
     border:0 !important;
   }
 
-  /* Footer becomes the true closing block after the map. */
   .site-footer{
     background:#130b09 !important;
     padding:24px 0 30px !important;
@@ -234,4 +310,14 @@
   .copyright{font-size:12px !important;line-height:1.5 !important;color:rgba(255,255,255,.65) !important;text-align:center !important}
   .footer-contacts{font-size:13px !important;line-height:1.55 !important;color:rgba(255,255,255,.84) !important;text-align:right !important}
   .socials.social-links{gap:9px !important}
+}
+
+@media (max-width:1200px) and (min-width:761px){
+  .hero-media img,
+  .hero-media img.founder-hero-loaded{
+    left:-9% !important;
+    width:112% !important;
+    object-position:center 42% !important;
+  }
+  .hero-content{grid-template-columns:minmax(340px,460px) 1fr !important}
 }
