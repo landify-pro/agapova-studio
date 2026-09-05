@@ -1,0 +1,140 @@
+/* AGAPOVA STUDIO — approved mobile hero composition v6 */
+
+@media (max-width:760px){
+  .hero{
+    background:#3b1d10 !important;
+  }
+
+  /* Brighter, warmer portrait to match the approved visual reference. */
+  .hero-media img,
+  .hero-media img.founder-hero-loaded{
+    width:162% !important;
+    right:-30% !important;
+    top:-430px !important;
+    filter:brightness(1.10) saturate(1.14) contrast(1.025) sepia(.025) !important;
+  }
+
+  /* Keep the face and satin bright, while preserving legibility in the lower copy area. */
+  .hero-media::after{
+    background:
+      radial-gradient(68% 54% at 26% 11%, rgba(181,103,52,.18) 0%, rgba(181,103,52,0) 72%),
+      linear-gradient(90deg,
+        rgba(24,10,6,.34) 0%,
+        rgba(24,10,6,.19) 34%,
+        rgba(24,10,6,.05) 62%,
+        rgba(24,10,6,0) 100%),
+      linear-gradient(180deg,
+        rgba(10,5,3,.01) 0%,
+        rgba(10,5,3,.02) 42%,
+        rgba(10,5,3,.17) 66%,
+        rgba(10,5,3,.58) 100%) !important;
+  }
+
+  .eyebrow{display:none !important}
+
+  /* Thin handwritten accent, centered in the open upper area. */
+  .hero-copy::before{
+    content:"Больше,\A чем красота" !important;
+    white-space:pre-line !important;
+    position:absolute !important;
+    top:108px !important;
+    left:50% !important;
+    width:260px !important;
+    transform:translateX(-50%) rotate(-5deg) !important;
+    z-index:8 !important;
+    text-align:center !important;
+    font-family:"Snell Roundhand","Apple Chancery","Segoe Script",cursive !important;
+    font-size:31px !important;
+    line-height:1.04 !important;
+    font-weight:400 !important;
+    color:#f2c8ae !important;
+    letter-spacing:.005em !important;
+    text-shadow:0 2px 12px rgba(28,10,4,.12) !important;
+    pointer-events:none !important;
+  }
+
+  /* Approved lower copy block: title, loyalty message, then booking CTA. */
+  .hero-sub.mobile-only{
+    left:18px !important;
+    top:420px !important;
+    width:250px !important;
+    max-width:250px !important;
+    margin:0 !important;
+    font-size:46px !important;
+    line-height:.90 !important;
+    letter-spacing:-.025em !important;
+    color:#fff !important;
+    z-index:8 !important;
+  }
+
+  .hero-loyalty{
+    left:19px !important;
+    top:558px !important;
+    width:260px !important;
+    max-width:260px !important;
+    margin:0 !important;
+    font-size:13.2px !important;
+    line-height:1.38 !important;
+    color:#fff !important;
+    z-index:8 !important;
+  }
+
+  .hero-bottom{display:none !important}
+
+  .hero-main-cta{
+    left:18px !important;
+    bottom:24px !important;
+    width:222px !important;
+    min-height:60px !important;
+    margin:0 !important;
+    padding:9px 10px 9px 24px !important;
+    justify-content:space-between !important;
+    font-size:16px !important;
+    font-weight:600 !important;
+    z-index:9 !important;
+    background:#fff !important;
+    color:#1b1312 !important;
+    border-color:#fff !important;
+  }
+
+  .hero-main-cta span{
+    width:42px !important;
+    height:42px !important;
+    color:#1b1312 !important;
+    border-color:rgba(27,19,18,.28) !important;
+  }
+}
+
+@media (max-width:390px){
+  .hero-media img,
+  .hero-media img.founder-hero-loaded{
+    width:164% !important;
+    right:-31% !important;
+    top:-415px !important;
+  }
+
+  .hero-copy::before{
+    top:102px !important;
+    width:238px !important;
+    font-size:28px !important;
+  }
+
+  .hero-sub.mobile-only{
+    top:404px !important;
+    width:232px !important;
+    max-width:232px !important;
+    font-size:43px !important;
+  }
+
+  .hero-loyalty{
+    top:536px !important;
+    width:238px !important;
+    max-width:238px !important;
+    font-size:12.4px !important;
+  }
+
+  .hero-main-cta{
+    bottom:22px !important;
+    width:214px !important;
+  }
+}
