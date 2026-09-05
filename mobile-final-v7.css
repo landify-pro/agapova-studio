@@ -1,4 +1,4 @@
-/* AGAPOVA STUDIO — mobile final v7.1 */
+/* AGAPOVA STUDIO — mobile final v7.2 */
 
 @media (max-width:760px){
   /* Hero tone and crop: neutral bronze, no orange cast. */
@@ -59,97 +59,68 @@
     padding-right:4px !important;
   }
 
-  /* Yandex map — make the exact studio point impossible to miss. */
+  /* Use only the native Yandex business marker. */
   .location-map__frame{
     position:relative !important;
     overflow:hidden !important;
   }
+  .location-map__pin{display:none !important;}
 
-  .location-map__pin{
-    position:absolute;
-    left:50%;
-    top:50%;
-    z-index:6;
-    transform:translate(-50%,-94%);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:7px;
-    text-decoration:none;
-    color:#26130d;
-    pointer-events:auto;
-    filter:drop-shadow(0 8px 14px rgba(35,18,12,.22));
-  }
-
-  .location-map__pin-label{
-    white-space:nowrap;
-    background:#fff;
-    border:1px solid rgba(52,27,19,.13);
-    border-radius:999px;
-    padding:8px 12px;
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:.02em;
-    box-shadow:0 7px 18px rgba(35,18,12,.14);
-  }
-
-  .location-map__pin-mark{
-    width:36px;
-    height:36px;
-    border-radius:50% 50% 50% 0;
-    transform:rotate(-45deg);
-    background:#6a321f;
-    display:grid;
-    place-items:center;
-    border:3px solid #fff;
-    box-shadow:0 5px 16px rgba(55,26,17,.28);
-  }
-
-  .location-map__pin-mark::after{
-    content:"";
-    width:9px;
-    height:9px;
-    border-radius:50%;
-    background:#fff;
-  }
-
-  /* Final loyalty card — rounded on every side and visually separated from the footer. */
+  /* Final loyalty card: return to the compact height, keep rounded bottom corners. */
   .cta{
-    padding:18px 0 22px !important;
+    padding:18px 0 24px !important;
     background:var(--bg) !important;
   }
 
   .cta-card{
     border-radius:22px !important;
     overflow:hidden !important;
-    min-height:690px !important;
+    min-height:430px !important;
+    height:auto !important;
   }
 
   .cta-content{
-    min-height:690px !important;
-    padding-bottom:30px !important;
+    min-height:430px !important;
+    height:auto !important;
+    padding:20px 16px 24px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    justify-content:flex-start !important;
   }
 
-  /* Keep the title where it is, but move paragraph + booking CTA below the face and center them. */
+  .cta-copy{
+    width:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+  }
+
+  .cta-copy h2.mobile-only{
+    max-width:235px !important;
+    margin:0 0 10px !important;
+  }
+
+  /* Keep copy on the dark left side so nothing crosses the model's face. */
   .cta-copy p.mobile-only{
-    max-width:270px !important;
-    margin:148px auto 17px !important;
-    text-align:center !important;
+    max-width:205px !important;
+    margin:74px 0 14px !important;
+    text-align:left !important;
     font-size:12.5px !important;
-    line-height:1.52 !important;
+    line-height:1.5 !important;
   }
 
   .cta-copy .dark-pill{
-    margin:0 auto !important;
+    margin:0 !important;
     justify-content:space-between !important;
   }
 
   .footer-brand{
-    margin-top:46px !important;
+    margin:28px auto 0 !important;
   }
 
   .footer-socials.social-links{
-    margin-top:18px !important;
+    margin:14px auto 0 !important;
   }
 }
 
@@ -163,11 +134,15 @@
 
   .cta-card,
   .cta-content{
-    min-height:675px !important;
+    min-height:418px !important;
   }
 
   .cta-copy p.mobile-only{
-    max-width:252px !important;
-    margin-top:138px !important;
+    max-width:195px !important;
+    margin-top:66px !important;
+  }
+
+  .footer-brand{
+    margin-top:24px !important;
   }
 }
