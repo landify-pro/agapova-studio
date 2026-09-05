@@ -19,12 +19,11 @@
     }
   }
 
-  function addYandexMap(){
-    if(document.querySelector('.location-map')) return;
-    const footer = document.querySelector('.site-footer');
-    if(!footer) return;
+  function createYandexMap(){
+    let section = document.querySelector('.location-map');
+    if(section) return section;
 
-    const section = document.createElement('section');
+    section = document.createElement('section');
     section.className = 'location-map';
     section.id = 'map';
     section.innerHTML = `
@@ -42,17 +41,35 @@
       <div class="container location-map__frame">
         <iframe src="https://yandex.ru/map-widget/v1/?ll=87.137265%2C53.769699&mode=search&text=Agapova%20Studio%2C%20Новокузнецк%2C%20Запорожская%2073Б&z=16" loading="lazy" allowfullscreen="true" title="AGAPOVA STUDIO на Яндекс Картах"></iframe>
       </div>`;
-    footer.insertAdjacentElement('beforebegin', section);
+    return section;
+  }
+
+  function placeYandexMap(){
+    const section = createYandexMap();
+    const footer = document.querySelector('.site-footer');
+    const cta = document.querySelector('.cta');
+    if(!section || !footer) return;
+
+    const mobile = window.matchMedia('(max-width:760px)').matches;
+    if(mobile && cta){
+      /* On mobile the map now comes first, then the loyalty card. */
+      cta.insertAdjacentElement('beforebegin', section);
+    }else{
+      /* Desktop keeps the existing loyalty-card → map → footer flow. */
+      footer.insertAdjacentElement('beforebegin', section);
+    }
   }
 
   const boot = () => {
     setFounderHero();
-    addYandexMap();
+    placeYandexMap();
+
     const mq = window.matchMedia('(max-width:760px)');
     const onChange = () => {
       const heroImg = document.querySelector('.hero-media img');
       if(heroImg) heroImg.classList.remove('founder-hero-loaded');
       setFounderHero();
+      placeYandexMap();
     };
     if(mq.addEventListener) mq.addEventListener('change', onChange);
   };
