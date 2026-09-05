@@ -1,4 +1,4 @@
-/* AGAPOVA STUDIO — approved mobile hero composition v6 */
+/* AGAPOVA STUDIO — approved mobile hero composition v6.1 */
 
 @media (max-width:760px){
   .hero{
@@ -32,31 +32,16 @@
 
   .eyebrow{display:none !important}
 
-  /* Thin handwritten accent, centered in the open upper area. */
+  /* Remove the handwritten slogan completely. */
   .hero-copy::before{
-    content:"Больше,\A чем красота" !important;
-    white-space:pre-line !important;
-    position:absolute !important;
-    top:108px !important;
-    left:50% !important;
-    width:260px !important;
-    transform:translateX(-50%) rotate(-5deg) !important;
-    z-index:8 !important;
-    text-align:center !important;
-    font-family:"Snell Roundhand","Apple Chancery","Segoe Script",cursive !important;
-    font-size:31px !important;
-    line-height:1.04 !important;
-    font-weight:400 !important;
-    color:#f2c8ae !important;
-    letter-spacing:.005em !important;
-    text-shadow:0 2px 12px rgba(28,10,4,.12) !important;
-    pointer-events:none !important;
+    content:none !important;
+    display:none !important;
   }
 
-  /* Approved lower copy block: title, loyalty message, then booking CTA. */
+  /* Raise the whole lower content group for a tighter composition. */
   .hero-sub.mobile-only{
     left:18px !important;
-    top:420px !important;
+    top:382px !important;
     width:250px !important;
     max-width:250px !important;
     margin:0 !important;
@@ -69,7 +54,7 @@
 
   .hero-loyalty{
     left:19px !important;
-    top:558px !important;
+    top:515px !important;
     width:260px !important;
     max-width:260px !important;
     margin:0 !important;
@@ -83,7 +68,7 @@
 
   .hero-main-cta{
     left:18px !important;
-    bottom:24px !important;
+    bottom:68px !important;
     width:222px !important;
     min-height:60px !important;
     margin:0 !important;
@@ -113,28 +98,22 @@
     top:-415px !important;
   }
 
-  .hero-copy::before{
-    top:102px !important;
-    width:238px !important;
-    font-size:28px !important;
-  }
-
   .hero-sub.mobile-only{
-    top:404px !important;
+    top:368px !important;
     width:232px !important;
     max-width:232px !important;
     font-size:43px !important;
   }
 
   .hero-loyalty{
-    top:536px !important;
+    top:495px !important;
     width:238px !important;
     max-width:238px !important;
     font-size:12.4px !important;
   }
 
   .hero-main-cta{
-    bottom:22px !important;
+    bottom:64px !important;
     width:214px !important;
   }
 }
