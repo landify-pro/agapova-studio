@@ -588,6 +588,34 @@
   .work-card img{height:100%;object-fit:cover}
 }
 </style>
+<style id="v55-atmosphere-video">
+/* V5.5 — editorial atmosphere film */
+.about-grid{align-items:center}
+.about-video{height:560px;min-height:0;isolation:isolate;background:#261713}
+.about-video::before{content:"";position:absolute;inset:-26px;z-index:-2;background:url("assets/images/atmosphere-poster.webp") center/cover no-repeat;filter:blur(22px) saturate(.72) brightness(.58);transform:scale(1.12)}
+.about-video::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(20,10,8,.08) 48%,rgba(20,10,8,.58) 100%)}
+.about-video__film{display:block;width:auto;height:100%;max-width:72%;margin:auto;object-fit:contain;position:relative;z-index:0;box-shadow:0 0 44px rgba(11,5,4,.28)}
+.about-video__label{position:absolute;top:22px;left:22px;z-index:2;color:#fff;font-size:11px;line-height:1;letter-spacing:.17em;text-transform:uppercase;padding:10px 13px;border:1px solid rgba(255,255,255,.3);border-radius:999px;background:rgba(29,16,12,.22);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+.about-video__controls{position:absolute;left:22px;right:22px;bottom:20px;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.about-video__caption{max-width:230px;color:#fff;font-family:var(--serif);font-size:25px;line-height:1.02;letter-spacing:-.02em;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.about-video__actions{display:flex;gap:8px;margin-left:auto}
+.about-video__button{border:1px solid rgba(255,255,255,.42);background:rgba(27,14,11,.32);color:#fff;height:44px;border-radius:999px;padding:0 15px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 11px/1 var(--sans);letter-spacing:.02em;cursor:pointer;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .2s ease,transform .2s ease}
+.about-video__button:hover{background:rgba(27,14,11,.58);transform:translateY(-1px)}
+.about-video__button--round{width:44px;padding:0;font-size:15px}
+.about-video__button span[aria-hidden="true"]{width:16px;text-align:center}
+
+@media(max-width:760px){
+  .about-video{width:100%;height:min(72svh,620px);min-height:470px;border-radius:18px;margin-bottom:16px}
+  .about-video__film{max-width:100%;width:100%;height:100%;object-fit:contain;box-shadow:none}
+  .about-video__label{top:14px;left:14px;font-size:8px;padding:8px 10px}
+  .about-video__controls{left:14px;right:14px;bottom:14px;align-items:end}
+  .about-video__caption{font-size:20px;max-width:150px}
+  .about-video__button{height:40px;padding:0 12px;font-size:0}
+  .about-video__button span[aria-hidden="true"]{font-size:14px}
+  .about-video__button--round{width:40px;padding:0}
+}
+@media(prefers-reduced-motion:reduce){.about-video__film{animation:none}}
+</style>
 <link rel="stylesheet" href="mobile-fixes.css?v=61">
 <link rel="stylesheet" href="hero-polish.css?v=2">
 <link rel="stylesheet" href="hero-refine-v3.css?v=3">
@@ -641,7 +669,7 @@
 <img alt="Работа 2" src="assets/images/thumb2.jpg"/>
 <img alt="Работа 3" src="assets/images/thumb3.jpg"/>
 </div>
-<a class="watch-link" href="#about">
+<a class="watch-link" href="#atmosphere">
 <div class="play-circle"></div>
 <b>Посмотрите<br/>нашу атмосферу</b>
 </a>
@@ -652,9 +680,18 @@
 <div class="category-bar"><div aria-label="Услуги AGAPOVA STUDIO" class="marquee"><div class="marquee-track"><span>Волосы</span><i class="dot"></i><span>Ногти</span><i class="dot"></i><span>Эстетическая косметология и массаж</span><i class="dot"></i><span>Уход за волосами</span><i class="dot"></i><span>250 м²</span><i class="dot"></i><span>Премиальные материалы</span><i class="dot"></i><span>Карта лояльности −15%</span><i class="dot"></i></div><div aria-hidden="true" class="marquee-track"><span>Волосы</span><i class="dot"></i><span>Ногти</span><i class="dot"></i><span>Эстетическая косметология и массаж</span><i class="dot"></i><span>Уход за волосами</span><i class="dot"></i><span>250 м²</span><i class="dot"></i><span>Премиальные материалы</span><i class="dot"></i><span>Карта лояльности −15%</span><i class="dot"></i></div></div></div>
 <section class="about" id="about">
 <div class="container about-grid">
-<div class="about-media anim">
-<img alt="Интерьер студии красоты" src="assets/images/interior.jpg"/>
-<div class="play-circle"></div>
+<div class="about-media about-video anim" id="atmosphere" data-atmosphere-video>
+<video aria-label="Атмосфера AGAPOVA STUDIO" autoplay class="about-video__film" loop muted playsinline poster="assets/images/atmosphere-poster.webp" preload="metadata">
+<source src="assets/video/agapova-atmosphere.mp4" type="video/mp4"/>
+</video>
+<div class="about-video__label">AGAPOVA · АТМОСФЕРА</div>
+<div class="about-video__controls">
+<div class="about-video__caption">Красота, люди<br/>и настроение</div>
+<div class="about-video__actions">
+<button aria-label="Приостановить видео" class="about-video__button about-video__button--round" data-video-play type="button"><span aria-hidden="true">Ⅱ</span></button>
+<button aria-label="Включить звук" class="about-video__button" data-video-sound type="button"><span aria-hidden="true">♪</span><b>Включить звук</b></button>
+</div>
+</div>
 </div>
 <div class="about-copy anim anim-delay-1">
 <h2 class="section-title">AGAPOVA STUDIO</h2>
@@ -899,6 +936,51 @@
     document.querySelectorAll('[data-slider-next="servicesTrack"]').forEach(b=>b.onclick=()=>services.scrollBy({left:step(),behavior:'smooth'}));
   }
 })();
-</script><script defer src="enhancements.js?v=7"></script>
+</script>
+<script id="v55-atmosphere-video-js">
+(() => {
+  const stage = document.querySelector('[data-atmosphere-video]');
+  const video = stage?.querySelector('video');
+  const playButton = stage?.querySelector('[data-video-play]');
+  const soundButton = stage?.querySelector('[data-video-sound]');
+  if(!stage || !video || !playButton || !soundButton) return;
+
+  const playIcon = playButton.querySelector('span');
+  const soundIcon = soundButton.querySelector('span');
+  const soundText = soundButton.querySelector('b');
+  const sync = () => {
+    const paused = video.paused;
+    playIcon.textContent = paused ? '▶' : 'Ⅱ';
+    playButton.setAttribute('aria-label', paused ? 'Продолжить видео' : 'Приостановить видео');
+    soundIcon.textContent = video.muted ? '♪' : '×';
+    soundText.textContent = video.muted ? 'Включить звук' : 'Выключить звук';
+    soundButton.setAttribute('aria-label', soundText.textContent);
+  };
+
+  playButton.addEventListener('click', async () => {
+    if(video.paused){ try{ await video.play(); }catch(_){} }
+    else video.pause();
+    sync();
+  });
+  soundButton.addEventListener('click', async () => {
+    video.muted = !video.muted;
+    if(video.paused){ try{ await video.play(); }catch(_){} }
+    sync();
+  });
+  video.addEventListener('play', sync);
+  video.addEventListener('pause', sync);
+
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) video.pause();
+  else if('IntersectionObserver' in window){
+    const observer = new IntersectionObserver(([entry]) => {
+      if(entry.isIntersecting){ video.play().catch(() => {}); }
+      else video.pause();
+    }, {threshold:.18});
+    observer.observe(stage);
+  }
+  sync();
+})();
+</script>
+<script defer src="enhancements.js?v=7"></script>
 </body>
 </html>
