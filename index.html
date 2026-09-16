@@ -681,8 +681,8 @@
 <section class="about" id="about">
 <div class="container about-grid">
 <div class="about-media about-video anim" id="atmosphere" data-atmosphere-video>
-<video aria-label="Атмосфера AGAPOVA STUDIO" autoplay class="about-video__film" loop muted playsinline poster="assets/images/atmosphere-poster.webp" preload="metadata">
-<source src="assets/video/agapova-atmosphere.mp4" type="video/mp4"/>
+<video aria-label="Атмосфера AGAPOVA STUDIO" autoplay class="about-video__film" loop muted playsinline webkit-playsinline poster="assets/images/atmosphere-poster.webp" preload="auto">
+<source src="assets/video/agapova-atmosphere.mp4?v=3" type="video/mp4"/>
 </video>
 <div class="about-video__label">AGAPOVA · АТМОСФЕРА</div>
 <div class="about-video__controls">
@@ -948,6 +948,17 @@
   const playIcon = playButton.querySelector('span');
   const soundIcon = soundButton.querySelector('span');
   const soundText = soundButton.querySelector('b');
+  let isVisible = false;
+  video.defaultMuted = true;
+  video.muted = true;
+  video.setAttribute('muted', '');
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
+
+  const ensurePlayback = () => {
+    if(!video.paused) return;
+    video.play().catch(() => {});
+  };
   const sync = () => {
     const paused = video.paused;
     playIcon.textContent = paused ? '▶' : 'Ⅱ';
@@ -973,11 +984,21 @@
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) video.pause();
   else if('IntersectionObserver' in window){
     const observer = new IntersectionObserver(([entry]) => {
-      if(entry.isIntersecting){ video.play().catch(() => {}); }
+      isVisible = entry.isIntersecting;
+      if(isVisible){ ensurePlayback(); }
       else video.pause();
-    }, {threshold:.18});
+    }, {threshold:.08, rootMargin:'90px 0px'});
     observer.observe(stage);
-  }
+  }else ensurePlayback();
+
+  video.addEventListener('loadeddata', () => { if(isVisible) ensurePlayback(); });
+  video.addEventListener('canplay', () => { if(isVisible) ensurePlayback(); });
+  document.addEventListener('visibilitychange', () => {
+    if(!document.hidden && isVisible) ensurePlayback();
+  });
+  document.addEventListener('touchstart', () => {
+    if(isVisible) ensurePlayback();
+  }, {once:true, passive:true});
   sync();
 })();
 </script>
